@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJConnect Interactive Poster</title>
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background: linear-gradient(to bottom right, #6b46c1, #4338ca);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            aspect-ratio: 1 / 1;
+        }
+        .card:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .details {
+            display: none;
+            position: absolute;
+            background-color: #1f2937;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: 300px;
+            text-align: left;
+        }
+        .card:nth-child(1) .details, .card:nth-child(2) .details {
+            top: calc(100% + 10px);
+        }
+        .card:nth-child(3) .details, .card:nth-child(4) .details {
+            bottom: calc(100% + 10px);
+        }
+        .details::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        .card:nth-child(1) .details::after, .card:nth-child(2) .details::after {
+            top: -10px;
+            border-bottom: 10px solid #1f2937;
+        }
+        .card:nth-child(3) .details::after, .card:nth-child(4) .details::after {
+            bottom: -10px;
+            border-top: 10px solid #1f2937;
+        }
+        .details h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .details p {
+            font-size: 0.875rem;
+        }
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        footer p:first-child {
+            font-size: 1.25rem;
+        }
+        footer p:last-child {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>UJConnect Interactive Poster</h1>
+    <div class="grid">
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h2>UJConnect: Digital Future Initiative</h2>
+            <p>A comprehensive e-business platform enhancing communication and connectivity at the University of Johannesburg.</p>
+            <div class="details">
+                <h3>UJConnect: Digital Future Initiative</h3>
+                <p>UJConnect centralizes student services, improving digital experiences across the University of Johannesburg. It supports decision-making at operational, managerial, and strategic levels, backed by advanced Management Information Systems.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">📊</div>
+            <h2>AI Technologies</h2>
+            <p>Utilizing Expert Systems, NLP, Machine Learning, and Neural Networks to provide personalized experiences and optimize operations.</p>
+            <div class="details">
+                <h3>AI Technologies</h3>
+                <p>UJConnect leverages AI for personalized course recommendations, chatbots, predictive analytics on student performance, and resource allocation optimization, enhancing the overall academic experience.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h2>E-Business Models</h2>
+            <p>Implementing B2B, B2C, and C2C models to create diverse revenue streams and enhance user engagement.</p>
+            <div class="details">
+                <h3>E-Business Models</h3>
+                <p>UJConnect employs B2B partnerships with edtech companies, B2C services like online tutoring, and C2C marketplaces for resource exchange. These models generate revenue through various fees while boosting engagement with personalized offerings.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">🔒</div>
+            <h2>Overcoming Challenges</h2>
+            <p>Addressing issues of consumer trust, data security, legal compliance, and scalability to ensure success.</p>
+            <div class="details">
+                <h3>Overcoming Challenges</h3>
+                <p>UJConnect tackles key challenges through transparent communication, robust security measures, adherence to POPIA and GDPR regulations, and scalable cloud infrastructure, ensuring a reliable and trustworthy platform.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Explore the future of higher education with UJConnect</p>
+        <p>University of Johannesburg © 2024</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            const details = card.querySelector('.details');
+            card.addEventListener('mouseenter', () => {
+                details.style.display = 'block';
+                const rect = card.getBoundingClientRect();
+                const detailsRect = details.getBoundingClientRect();
+                details.style.left = `${rect.width / 2 - detailsRect.width / 2}px`;
+            });
+            card.addEventListener('mouseleave', () => {
+                details.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
